@@ -21,7 +21,8 @@ const depreciationData = [
     purchaseDate: "2023-06-15",
     purchaseValue: 85000,
     method: "Straight Line",
-    rate: 20,
+    lifetime: "5 years",
+    calculationFrequency: "Monthly",
     bookValue: 68000,
     currentValue: 51000,
     depreciationPercent: 40,
@@ -33,7 +34,8 @@ const depreciationData = [
     purchaseDate: "2022-03-20",
     purchaseValue: 25000,
     method: "Reducing Balance",
-    rate: 15,
+    lifetime: "3 years",
+    calculationFrequency: "Quarterly",
     bookValue: 25000,
     currentValue: 18000,
     depreciationPercent: 28,
@@ -45,7 +47,8 @@ const depreciationData = [
     purchaseDate: "2023-01-10",
     purchaseValue: 15000,
     method: "Straight Line",
-    rate: 10,
+    lifetime: "10 years",
+    calculationFrequency: "Yearly",
     bookValue: 15000,
     currentValue: 13500,
     depreciationPercent: 10,
@@ -56,8 +59,9 @@ const depreciationData = [
     assetName: "MacBook Pro 16-inch",
     purchaseDate: "2024-01-05",
     purchaseValue: 250000,
-    method: "Straight Line",
-    rate: 25,
+    method: "Double Declining Balance",
+    lifetime: "4 years",
+    calculationFrequency: "Monthly",
     bookValue: 250000,
     currentValue: 245000,
     depreciationPercent: 2,
@@ -131,14 +135,14 @@ export default function DepreciationPage() {
               <Download className="mr-2 h-4 w-4" />
               Export Report
             </Button>
-            <Button
+            {/* <Button
               className="bg-green-600 hover:bg-green-700"
               onClick={handleCalculateDepreciation}
               disabled={isCalculating}
             >
               <Calculator className="mr-2 h-4 w-4" />
               {isCalculating ? "Calculating..." : "Calculate Depreciation"}
-            </Button>
+            </Button> */}
           </div>
         </div>
 
@@ -235,7 +239,8 @@ export default function DepreciationPage() {
                   <TableHead>Asset Name</TableHead>
                   <TableHead>Purchase Date</TableHead>
                   <TableHead>Method</TableHead>
-                  <TableHead>Rate (%)</TableHead>
+                  <TableHead>Lifetime</TableHead>
+                  <TableHead>Calculation Frequency</TableHead>
                   <TableHead>Book Value</TableHead>
                   <TableHead>Current Value</TableHead>
                   <TableHead>Depreciation</TableHead>
@@ -250,7 +255,10 @@ export default function DepreciationPage() {
                     <TableCell>
                       <Badge variant="outline">{item.method}</Badge>
                     </TableCell>
-                    <TableCell>{item.rate}%</TableCell>
+                    <TableCell>{item.lifetime}</TableCell>
+                    <TableCell>
+                      <Badge variant="secondary">{item.calculationFrequency}</Badge>
+                    </TableCell>
                     <TableCell>৳{item.bookValue.toLocaleString()}</TableCell>
                     <TableCell>৳{item.currentValue.toLocaleString()}</TableCell>
                     <TableCell>

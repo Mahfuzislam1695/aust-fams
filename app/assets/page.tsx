@@ -247,6 +247,26 @@ export default function AssetsPage() {
                     </div>
                   </div>
                   <div className="space-y-2">
+                    <Label>Asset Lifetime</Label>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Input id="lifetimeValue" type="number" placeholder="5" min="1" />
+                      </div>
+                      <div className="space-y-2">
+                        <Select>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select unit" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="days">Days</SelectItem>
+                            <SelectItem value="months">Months</SelectItem>
+                            <SelectItem value="years">Years</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
                     <Label htmlFor="description">Description</Label>
                     <Textarea id="description" placeholder="Asset description and specifications" />
                   </div>

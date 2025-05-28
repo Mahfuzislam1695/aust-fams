@@ -119,10 +119,21 @@ export default function LandingPage() {
 
         {/* Footer */}
         <div className="text-center mt-8">
-          <Link href="/" className="text-sm text-gray-200 hover:text-white">
-            ← Back to Home
-          </Link>
+          <div className="flex items-center justify-center space-x-2 text-gray-200">
+            <span className="text-sm">
+              Developed by{" "}
+              <a
+                href="https://atilimited.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-blue-400"
+              >
+                ATI Limited
+              </a>
+            </span>
+          </div>
         </div>
+
       </div>
     </div>
   )
