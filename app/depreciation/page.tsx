@@ -74,7 +74,6 @@ const depreciationSummary = {
 
 export default function DepreciationPage() {
   const [selectedMethod, setSelectedMethod] = useState("all")
-  const [selectedFrequency, setSelectedFrequency] = useState("monthly")
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
   const [isCalculating, setIsCalculating] = useState(false)
 
@@ -190,15 +189,15 @@ export default function DepreciationPage() {
           </Card>
         </div>
 
-        {/* Depreciation Settings */}
+        {/* Filter Section */}
         <Card>
           <CardHeader>
-            <CardTitle>Depreciation Settings</CardTitle>
-            <CardDescription>Configure depreciation calculation parameters</CardDescription>
+            <CardTitle>Filter Assets</CardTitle>
+            <CardDescription>Filter assets by depreciation method</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
+            <div className="flex items-center space-x-4">
+              <div className="w-64">
                 <label className="text-sm font-medium text-gray-700 mb-2 block">Depreciation Method</label>
                 <Select value={selectedMethod} onValueChange={setSelectedMethod}>
                   <SelectTrigger>
@@ -208,23 +207,11 @@ export default function DepreciationPage() {
                     <SelectItem value="all">All Methods</SelectItem>
                     <SelectItem value="Straight Line">Straight Line</SelectItem>
                     <SelectItem value="Reducing Balance">Reducing Balance</SelectItem>
+                    <SelectItem value="Sum of Years Digits">Sum of Years Digits</SelectItem>
+                    <SelectItem value="Units of Production">Units of Production</SelectItem>
+                    <SelectItem value="Double Declining Balance">Double Declining Balance</SelectItem>
                   </SelectContent>
                 </Select>
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Calculation Frequency</label>
-                <Select value={selectedFrequency} onValueChange={setSelectedFrequency}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select frequency" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="monthly">Monthly</SelectItem>
-                    <SelectItem value="yearly">Yearly</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="flex items-end">
-                <Button className="w-full">Apply Settings</Button>
               </div>
             </div>
           </CardContent>
@@ -297,6 +284,8 @@ export default function DepreciationPage() {
                   <SelectItem value="straight-line">Straight Line</SelectItem>
                   <SelectItem value="reducing-balance">Reducing Balance</SelectItem>
                   <SelectItem value="sum-of-years">Sum of Years Digits</SelectItem>
+                  <SelectItem value="units-of-production">Units of Production</SelectItem>
+                  <SelectItem value="double-declining">Double Declining Balance</SelectItem>
                 </SelectContent>
               </Select>
             </div>

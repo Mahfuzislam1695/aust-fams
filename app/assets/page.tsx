@@ -216,6 +216,36 @@ export default function AssetsPage() {
                       <Input id="location" placeholder="Room 101, IT Building" />
                     </div>
                   </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="depreciationMethod">Depreciation Method</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select method" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="straight-line">Straight Line</SelectItem>
+                          <SelectItem value="reducing-balance">Reducing Balance</SelectItem>
+                          <SelectItem value="sum-of-years">Sum of Years Digits</SelectItem>
+                          <SelectItem value="units-of-production">Units of Production</SelectItem>
+                          <SelectItem value="double-declining">Double Declining Balance</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="calculationFrequency">Calculation Frequency</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select frequency" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="monthly">Monthly</SelectItem>
+                          <SelectItem value="quarterly">Quarterly</SelectItem>
+                          <SelectItem value="yearly">Yearly</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
                   <div className="space-y-2">
                     <Label htmlFor="description">Description</Label>
                     <Textarea id="description" placeholder="Asset description and specifications" />
